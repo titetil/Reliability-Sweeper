@@ -47,21 +47,22 @@
 			<Item Name="LevelSenderStyle.csv" Type="Document" URL="../Files/LevelSenderStyle.csv"/>
 		</Item>
 		<Item Name="Graphing Script" Type="Folder">
-			<Item Name=".idea" Type="Folder">
-				<Item Name="ls-tester-graph-script.iml" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/.idea/ls-tester-graph-script.iml"/>
-				<Item Name="workspace.xml" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/.idea/workspace.xml"/>
-				<Item Name="modules.xml" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/.idea/modules.xml"/>
-				<Item Name="misc.xml" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/.idea/misc.xml"/>
-			</Item>
 			<Item Name="Create Python Graph (Example).vi" Type="VI" URL="../PC subVIs/ls-tester-graph-script-master/Create Python Graph (Example).vi"/>
 			<Item Name="Create Python Graph.vi" Type="VI" URL="../PC subVIs/ls-tester-graph-script-master/Create Python Graph.vi"/>
 			<Item Name="main.py" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/main.py"/>
+			<Item Name="MLS Tolerance (MS, dry).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/MLS Tolerance (MS, dry).csv"/>
+			<Item Name="MLS Tolerance (MS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/MLS Tolerance (MS, wet).csv"/>
+			<Item Name="MLS Tolerance (SS, dry).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/MLS Tolerance (SS, dry).csv"/>
+			<Item Name="MLS Tolerance (SS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/MLS Tolerance (SS, wet).csv"/>
 			<Item Name="README.md" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/README.md"/>
 		</Item>
 		<Item Name="Reliability Project MAIN (PC).vi" Type="VI" URL="../Reliability Project MAIN (PC).vi"/>
 		<Item Name="Data (Global).vi" Type="VI" URL="../PC subVIs/Data (Global).vi"/>
 		<Item Name="Create Waveform.vi" Type="VI" URL="../PC subVIs/Create Waveform.vi"/>
 		<Item Name="Remove Invalid File Characters.vi" Type="VI" URL="../PC subVIs/Remove Invalid File Characters.vi"/>
+		<Item Name="Graphing Data (global).vi" Type="VI" URL="../PC subVIs/Graphing Data (global).vi"/>
+		<Item Name="Graphing Engine.vi" Type="VI" URL="../PC subVIs/Graphing Engine.vi"/>
+		<Item Name="Evaluate Data Errors.vi" Type="VI" URL="../PC subVIs/Evaluate Data Errors.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
