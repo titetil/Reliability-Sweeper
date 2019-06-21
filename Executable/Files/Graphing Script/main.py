@@ -56,21 +56,22 @@ def create_graph(file_path, tol_path, main_side, wet_test, y_axis_max, data_star
     time = data[:, 0]
     sys_height = data[:,1]
     ls_ohms = data[:,4]
-    min_indice = np.argmin(ls_ohms)
+    min_indice = np.argmax(sys_height)
     empty_to_full = ls_ohms[:min_indice]
     full_to_empty = ls_ohms[min_indice:]
     empty_to_full_sys = sys_height[:min_indice]
     full_to_empty_sys = sys_height[min_indice:]
 
     # height vs resistance
-    ax.set_xlim(sys_height.min(), sys_height.max())
+    xmax = tol_data[:, 2].max()
+    ax.set_xlim(sys_height.min(), xmax)
     ax.set_ylim(0, float(y_axis_max))
     e_to_f_plot = ax.plot(empty_to_full_sys, empty_to_full, linewidth=0.5, label='R vs. H - fill', color='blue')
     f_to_e_plot = ax.plot(full_to_empty_sys, full_to_empty, linewidth=0.5, label='R vs. H - drain', color='magenta')
     ax.set_xlabel('Height / mm', fontsize=7)
     ax.set_ylabel(r'Resistance / $\Omega$', fontsize=7)
     start, end = ax.get_xlim()
-    ax.xaxis.set_ticks(np.arange(int(start), end, 10))
+    ax.xaxis.set_ticks(np.arange(int(start), end + 10, 10))
     lns = e_to_f_plot + f_to_e_plot
 
     # time vs resistance
@@ -106,9 +107,9 @@ def create_graph(file_path, tol_path, main_side, wet_test, y_axis_max, data_star
     start, end = ax.get_ylim()
     ax.yaxis.set_ticks(np.arange(0, end, 50))
 
-    #fig.savefig("test.png")
+    fig.savefig(file_path.replace('.csv','.png'), dpi=1000)
     #plt.show()
-    make_pdf(file_path)
+    #make_pdf(file_path)
 
 def make_pdf(file_path):
     pp = PdfPages(file_path.replace('.csv','.pdf'))
