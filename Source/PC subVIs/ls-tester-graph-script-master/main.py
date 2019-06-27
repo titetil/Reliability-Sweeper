@@ -28,7 +28,15 @@ def create_graph(file_path, tol_path, main_side, wet_test, y_axis_max, data_star
     data = np.genfromtxt(file_path, delimiter=',', dtype=str, skip_header=data_start_index)
     data = np_f.replace(data, '"', '')  # the csv files have double quotes for some reason - these need to be removed
     data = data.astype(np.float)  # convert remaining data to float
-    data = data[:data_end_index,:]
+    height_array = data[:,1]
+    min_height = np.amin(height_array)
+    max_height = np.amax(height_array)
+    mid_height = (max_height - min_height) / 2
+    first_transition_index = int(np.argwhere(height_array > mid_height)[0])
+    second_transition_index = int(np.argwhere(height_array[first_transition_index:] < mid_height - 10)[0]) + first_transition_index
+    end_height_index = np.argmin(height_array[second_transition_index:(first_transition_index + second_transition_index)]) + second_transition_index
+    data = data[:end_height_index, :]
+    #data = data[:data_end_index,:]
 
     # Tolerance data
     if mls_test == 'True':
@@ -63,7 +71,10 @@ def create_graph(file_path, tol_path, main_side, wet_test, y_axis_max, data_star
     full_to_empty_sys = sys_height[min_indice:]
 
     # height vs resistance
-    xmax = tol_data[:, 2].max()
+    if mls_test == 'True':
+        xmax = tol_data[:, 2].max()
+    else:
+        xmax = sys_height.max()
     ax.set_xlim(sys_height.min(), xmax)
     ax.set_ylim(0, float(y_axis_max))
     e_to_f_plot = ax.plot(empty_to_full_sys, empty_to_full, linewidth=0.5, label='R vs. H - fill', color='blue')
@@ -107,9 +118,12 @@ def create_graph(file_path, tol_path, main_side, wet_test, y_axis_max, data_star
     start, end = ax.get_ylim()
     ax.yaxis.set_ticks(np.arange(0, end, 50))
 
-    fig.savefig(file_path.replace('.csv','.png'), dpi=1000)
+    if mls_test == 'True':
+        fig.savefig(file_path.replace('.csv','.png'), dpi=1000)
+    else:
+        make_pdf(file_path)
+
     #plt.show()
-    #make_pdf(file_path)
 
 def make_pdf(file_path):
     pp = PdfPages(file_path.replace('.csv','.pdf'))
@@ -120,8 +134,8 @@ def make_pdf(file_path):
 if __name__ == "__main__":
 
     create_graph(args.path, args.tol_path, args.main_side, args.wet_test, args.y_axis_max, int(args.data_start_index), int(args.data_end_index), args.mls_test, args.title)
-    #create_graph(r'C:\Users\gtetil\Documents\Projects\ls-tester-graph-script\Data\CA2019-1111_MLS MS PV_3164-1_Dry Test_Post Vibration Resistance_100hr.csv',
-    #             r'C:\Users\gtetil\Documents\Projects\ls-tester-graph-script', 'False', 'True', '1050', 8, 8800, 'False')
+    #create_graph(r'C:\Data\MLS script test\36742.csv',
+    #             r'C:\Users\gtetil\Documents\Projects\ls-tester-graph-script', 'True', 'False', '1250', 10, 0, 'False', 'Title')
 
 
 

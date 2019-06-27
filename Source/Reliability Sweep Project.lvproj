@@ -54,7 +54,8 @@
 			<Item Name="MLS Tolerance (MS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/MLS Tolerance (MS, wet).csv"/>
 			<Item Name="MLS Tolerance (SS, dry).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/MLS Tolerance (SS, dry).csv"/>
 			<Item Name="MLS Tolerance (SS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/MLS Tolerance (SS, wet).csv"/>
-			<Item Name="README.md" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/README.md"/>
+			<Item Name="batch_graph_creator.exe" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/batch_graph_creator.exe"/>
+			<Item Name="batch_graph_creator.py" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/batch_graph_creator.py"/>
 		</Item>
 		<Item Name="Reliability Project MAIN (PC).vi" Type="VI" URL="../Reliability Project MAIN (PC).vi"/>
 		<Item Name="Data (Global).vi" Type="VI" URL="../PC subVIs/Data (Global).vi"/>
