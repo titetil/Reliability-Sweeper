@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['batch_graph_creator.py'],
-             pathex=['C:\\Users\\gtetil\\Documents\\Projects\\ls-tester-graph-script'],
+             pathex=['C:\\Users\\gtetil\\Documents\\Projects\\Reliability-Sweeper\\Source\\PC subVIs\\ls-tester-graph-script-master'],
              binaries=[],
              datas=[],
              hiddenimports=[],

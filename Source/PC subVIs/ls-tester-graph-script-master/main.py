@@ -10,16 +10,18 @@ parser.add_argument('--path', dest='path')
 parser.add_argument('--tol_path', dest='tol_path')
 parser.add_argument('--main_side', dest='main_side')
 parser.add_argument('--wet_test', dest='wet_test')
+parser.add_argument('--x_axis_min', dest='x_axis_min')
+parser.add_argument('--x_axis_max', dest='x_axis_max')
+parser.add_argument('--x2_axis_max', dest='x2_axis_max')
 parser.add_argument('--y_axis_max', dest='y_axis_max')
 parser.add_argument('--data_start_index', dest='data_start_index')
-parser.add_argument('--data_end_index', dest='data_end_index')
 parser.add_argument('--mls_test', dest='mls_test')
 parser.add_argument('--title', dest='title')
 
 args = parser.parse_args()
 
 
-def create_graph(file_path, tol_path, main_side, wet_test, y_axis_max, data_start_index, data_end_index, mls_test, title):
+def create_graph(file_path, tol_path, main_side, wet_test, x_axis_min, x_axis_max, x2_axis_max, y_axis_max, data_start_index, mls_test, title):
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
@@ -71,11 +73,7 @@ def create_graph(file_path, tol_path, main_side, wet_test, y_axis_max, data_star
     full_to_empty_sys = sys_height[min_indice:]
 
     # height vs resistance
-    if mls_test == 'True':
-        xmax = tol_data[:, 2].max()
-    else:
-        xmax = sys_height.max()
-    ax.set_xlim(sys_height.min(), xmax)
+    ax.set_xlim(int(x_axis_min), int(x_axis_max))
     ax.set_ylim(0, float(y_axis_max))
     e_to_f_plot = ax.plot(empty_to_full_sys, empty_to_full, linewidth=0.5, label='R vs. H - fill', color='blue')
     f_to_e_plot = ax.plot(full_to_empty_sys, full_to_empty, linewidth=0.5, label='R vs. H - drain', color='magenta')
@@ -88,7 +86,7 @@ def create_graph(file_path, tol_path, main_side, wet_test, y_axis_max, data_star
     # time vs resistance
     if mls_test == 'True':
         ax2 = ax.twiny()
-        ax2.set_xlim(0, time.max())
+        ax2.set_xlim(0, int(x2_axis_max))
         #ax2.set_ylim([0, float(y_axis_max)])
         r_vs_t = ax2.plot(time, ls_ohms, linewidth=0.5, label='Resistance vs. Time', color='orange')
         ax2.set_xlabel('Time / s', fontsize=7)
@@ -125,6 +123,8 @@ def create_graph(file_path, tol_path, main_side, wet_test, y_axis_max, data_star
 
     #plt.show()
 
+    plt.close(fig)  # must close figure, or there will be a memory error when running batch_graph_creator.py
+
 def make_pdf(file_path):
     pp = PdfPages(file_path.replace('.csv','.pdf'))
     pp.savefig()
@@ -133,7 +133,7 @@ def make_pdf(file_path):
 
 if __name__ == "__main__":
 
-    create_graph(args.path, args.tol_path, args.main_side, args.wet_test, args.y_axis_max, int(args.data_start_index), int(args.data_end_index), args.mls_test, args.title)
+    create_graph(args.path, args.tol_path, args.main_side, args.wet_test, args.x_axis_min, args.x_axis_max, args.x2_axis_max, args.y_axis_max, int(args.data_start_index), args.mls_test, args.title)
     #create_graph(r'C:\Data\MLS script test\36742.csv',
     #             r'C:\Users\gtetil\Documents\Projects\ls-tester-graph-script', 'True', 'False', '1250', 10, 0, 'False', 'Title')
 
