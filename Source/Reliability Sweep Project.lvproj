@@ -56,6 +56,16 @@
 			<Item Name="MLS Tolerance (SS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/MLS Tolerance (SS, wet).csv"/>
 			<Item Name="batch_graph_creator.exe" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/batch_graph_creator.exe"/>
 			<Item Name="batch_graph_creator.py" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/batch_graph_creator.py"/>
+			<Item Name="E7x Tolerance (MS, dry).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/E7x Tolerance (MS, dry).csv"/>
+			<Item Name="E7x Tolerance (MS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/E7x Tolerance (MS, wet).csv"/>
+			<Item Name="E7x Tolerance (SS, dry).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/E7x Tolerance (SS, dry).csv"/>
+			<Item Name="E7x Tolerance (SS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/E7x Tolerance (SS, wet).csv"/>
+			<Item Name="F1x Tolerance (MS, dry).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/F1x Tolerance (MS, dry).csv"/>
+			<Item Name="F1x Tolerance (MS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/F1x Tolerance (MS, wet).csv"/>
+			<Item Name="F1x Tolerance (SS, dry).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/F1x Tolerance (SS, dry).csv"/>
+			<Item Name="F1x Tolerance (SS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/F1x Tolerance (SS, wet).csv"/>
+			<Item Name="F2x Tolerance (MS, dry).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/F2x Tolerance (MS, dry).csv"/>
+			<Item Name="F2x Tolerance (MS, wet).csv" Type="Document" URL="../PC subVIs/ls-tester-graph-script-master/F2x Tolerance (MS, wet).csv"/>
 		</Item>
 		<Item Name="Reliability Project MAIN (PC).vi" Type="VI" URL="../Reliability Project MAIN (PC).vi"/>
 		<Item Name="Data (Global).vi" Type="VI" URL="../PC subVIs/Data (Global).vi"/>
@@ -131,6 +141,7 @@
 			<Item Name="RTsend PCrecv Cluster.ctl" Type="VI" URL="../TCP/RT/RTsend PCrecv Cluster.ctl"/>
 			<Item Name="RTsend PCrecv CMD.ctl" Type="VI" URL="../TCP/RT/RTsend PCrecv CMD.ctl"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
+			<Item Name="Level Sender Series.ctl" Type="VI" URL="../TypeDef/Level Sender Series.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Reliability Sweep Program" Type="EXE">
@@ -160,7 +171,7 @@
 				<Property Name="Destination[2].destName" Type="Str">Graphing Script</Property>
 				<Property Name="Destination[2].path" Type="Path">../Executable/Files/Graphing Script</Property>
 				<Property Name="DestinationCount" Type="Int">3</Property>
-				<Property Name="Source[0].itemID" Type="Str">{1D73ECDE-2164-476B-8322-9A2F6CD0D623}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{2EAA53BD-99B1-4EA7-8008-E89D57F96941}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Reliability Project MAIN (PC).vi</Property>
