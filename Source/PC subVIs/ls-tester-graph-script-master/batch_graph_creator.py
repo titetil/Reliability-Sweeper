@@ -9,6 +9,7 @@ def main():
     x_axis_max = raw_input("Enter x-axis maximum (for system height):  ")
     x2_axis_max = raw_input("Enter x-axis maximum (for time):  ")
     y_axis_max = raw_input("Enter y-axis maximum (for ls resistance):  ")
+    time_v_res = raw_input("Plot Time v Resistance? (y/n):  ")
     tol_path = os.getcwd()
     for path, subdirs, files in os.walk(data_path):
         for file in files:
@@ -35,7 +36,8 @@ def main():
                     ls_series = 'F2x'
                 else:
                     ls_series = 'unknown'
-                create_graph(file_path, tol_path, main_side, wet_test, x_axis_min, x_axis_max, x2_axis_max, y_axis_max, 10, ls_series, ca_number + ' ' + part_model + ' ' + part_sn + ' ' + test_style + ' ' + hours_description)
+                plot_time_v_res = 'True' if time_v_res == 'y' else 'False'
+                create_graph(file_path, tol_path, main_side, wet_test, x_axis_min, x_axis_max, x2_axis_max, y_axis_max, 10, ls_series, ca_number + ' ' + part_model + ' ' + part_sn + ' ' + test_style + ' ' + hours_description, plot_time_v_res)
     print 'Batch graph creation complete.'
 
 

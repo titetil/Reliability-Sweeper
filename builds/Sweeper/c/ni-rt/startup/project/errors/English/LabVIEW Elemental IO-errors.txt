@@ -19,6 +19,9 @@ LabVIEW Elemental IO:  An internal software error in LabVIEW Elemental I/O compo
 
 Required tag was not found in the resource file.
 </nierror>
+<nierror code="-64006">
+LabVIEW Elemental IO:  I/O project item has an error
+</nierror>
 <nierror code="-64005">
 LabVIEW Elemental IO:  Conflicting I/O Items found within the Method
 </nierror>
