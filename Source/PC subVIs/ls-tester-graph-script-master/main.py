@@ -16,6 +16,16 @@ class Graph_Output_File(Enum):
     png = 0
     pdf = 1
 
+class Color(Enum):
+    red = 0
+    black = 1
+    green = 2
+    blue = 3
+    orange = 4
+    yellow = 5
+    purple = 6
+    grey = 7
+
 def create_graph(
         data,
         data_path,
@@ -38,6 +48,7 @@ def create_graph(
     ax = fig.add_subplot(111)
     graph_type = Graph_Type(graph_type)  # convert graph type to an enum
     graph_output_file = Graph_Output_File(graph_output_file)  # convert graph output file to an enum
+    tol_band_color = Color(tol_band_color)  # convert tol band color to an enum
 
     # LS data
     data = np.array(data)
@@ -119,8 +130,8 @@ def create_graph(
         tol_data = np.genfromtxt(tol_path, delimiter=',', dtype=str, skip_header=1)
         tol_data = np_f.replace(tol_data, '"', '')  # the csv files have double quotes for some reason - these need to be removed
         tol_data = tol_data.astype(np.float)  # convert remaining data to float
-        low_tol_plot = ax.plot(tol_data[:, 0], tol_data[:, 1], linewidth=0.5, color=tol_band_color, label='Tolerance', linestyle=':')
-        up_tol_plot = ax.plot(tol_data[:, 2], tol_data[:, 3], linewidth=0.5, color=tol_band_color, linestyle=':')
+        low_tol_plot = ax.plot(tol_data[:, 0], tol_data[:, 1], linewidth=0.5, color=tol_band_color.name, label='Tolerance', linestyle=':')
+        up_tol_plot = ax.plot(tol_data[:, 2], tol_data[:, 3], linewidth=0.5, color=tol_band_color.name, linestyle=':')
         lns = lns + low_tol_plot
 
     # create legend
@@ -162,10 +173,10 @@ if __name__ == "__main__":
 
     create_graph(data=data,
                  data_path=file_path,
-                 title_1='CA2020-3549 MAPPS',
-                 title_2='2921-1 Wet Test Post 6.8 Mechanical Strength of Electrical Connector',
-                 tol_path=r'C:\Users\gtetil\Documents\Projects\Reliability-Sweeper\Source\PC subVIs\ls-tester-graph-script-master\MLS Tolerance (MS, dry).csv',
-                 tol_band_color='red',
+                 title_1='CA2020-3549, MAPPS, Post 6.8 Mechanical Strength of Electrical Connector',
+                 title_2='2921-1, Wet Test',
+                 tol_path=r'C:\Users\gtetil\Documents\Projects\Reliability-Sweeper\Source\Files\Tolerances\MLS Tolerance (MS, dry).csv',
+                 tol_band_color=0,
                  graph_type=0,
                  height_min=-15,
                  height_max=235,
@@ -174,7 +185,7 @@ if __name__ == "__main__":
                  resistance_interval=50,
                  time_max=20,
                  time_interval=1,
-                 graph_output_file=0,
+                 graph_output_file=1,
                  auto_open=1)
 
 
