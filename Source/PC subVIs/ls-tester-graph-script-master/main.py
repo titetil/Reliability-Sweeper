@@ -7,6 +7,7 @@ import numpy.core.defchararray as np_f
 import math
 from enum import Enum
 
+
 class Graph_Type(Enum):
     H_vs_R = 0
     T_vs_R = 1
@@ -99,7 +100,8 @@ def create_graph(
         ax.yaxis.set_ticks(np.arange(0, resistance_max, resistance_interval))
         lns = e_to_f_plot + f_to_e_plot
         if graph_type == Graph_Type.H_vs_R:
-            ax.set_title(r'$\bf{{{}}}$'.format(title_1) + '\n' + title_2, fontsize=10)
+            fig.suptitle(title_1, fontsize=10, fontweight='bold')
+            ax.set_title(title_2, fontsize=10, y=1.03)
 
     # time vs resistance (with height vs resistance)
     if graph_type == Graph_Type.Both:
@@ -111,7 +113,8 @@ def create_graph(
         lns = lns + r_vs_t
         ax2.tick_params(labelsize=5)
         plt.subplots_adjust(top=0.835)
-        ax.set_title(r'$\bf{{{}}}$'.format(title_1) + '\n' + title_2, fontsize=10, y=1.09)  # this raises the title to fit the top x-axis
+        fig.suptitle(title_1, fontsize=10, fontweight='bold')
+        ax.set_title(title_2, fontsize=10, y=1.095)  # this raises the title to fit the top x-axis
 
     # time vs resistance (only)
     if graph_type == Graph_Type.T_vs_R:
@@ -123,7 +126,8 @@ def create_graph(
         ax.xaxis.set_ticks(np.arange(0, time_max, time_interval))
         ax.yaxis.set_ticks(np.arange(0, resistance_max, resistance_interval))
         lns = r_vs_t
-        ax.set_title(r'$\bf{{{}}}$'.format(title_1) + '\n' + title_2, fontsize=10)
+        fig.suptitle(title_1, fontsize=10, fontweight='bold')
+        ax.set_title(title_2, fontsize=10, y=1.03)
 
     # tolerance bands
     if tol_path != '' and graph_type != Graph_Type.T_vs_R:
@@ -166,7 +170,7 @@ def roundup(x):
 
 if __name__ == "__main__":
 
-    file_path = r'C:\Data\3164-1 (multiple cycles).csv'
+    file_path = r'C:\Data\test4.csv'
     data = np.genfromtxt(file_path, delimiter=',', dtype=str,)
     data = np_f.replace(data, '"', '')  # the csv files have double quotes for some reason - these need to be removed
     data = data.astype(np.float)  # convert remaining data to float
@@ -177,7 +181,7 @@ if __name__ == "__main__":
                  title_2='2921-1, Wet Test',
                  tol_path=r'C:\Users\gtetil\Documents\Projects\Reliability-Sweeper\Source\Files\Tolerances\MLS Tolerance (MS, dry).csv',
                  tol_band_color=0,
-                 graph_type=0,
+                 graph_type=2,
                  height_min=-15,
                  height_max=235,
                  height_interval=10,
