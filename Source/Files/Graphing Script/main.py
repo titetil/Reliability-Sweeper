@@ -96,8 +96,8 @@ def create_graph(
         f_to_e_plot = ax.plot(full_to_empty_sys, full_to_empty, linewidth=0.5, label='R vs. H - drain', color='magenta')
         ax.set_xlabel('Height (mm)', fontsize=7)
         ax.set_ylabel(r'Resistance ($\Omega$)', fontsize=7)
-        ax.xaxis.set_ticks(np.arange(height_min, height_max, height_interval))
-        ax.yaxis.set_ticks(np.arange(0, resistance_max, resistance_interval))
+        ax.xaxis.set_ticks(np.append(np.arange(height_min, height_max, height_interval), height_max))
+        ax.yaxis.set_ticks(np.append(np.arange(0, resistance_max, resistance_interval), resistance_max))
         lns = e_to_f_plot + f_to_e_plot
         if graph_type == Graph_Type.H_vs_R:
             fig.suptitle(title_1, fontsize=10, fontweight='bold')
@@ -109,7 +109,7 @@ def create_graph(
         ax2.set_xlim(0, time_max)
         r_vs_t = ax2.plot(time, ls_ohms, linewidth=0.5, label='Resistance vs. Time', color='orange')
         ax2.set_xlabel('Time (sec)', fontsize=7)
-        ax2.xaxis.set_ticks(np.arange(0, time_max, time_interval))
+        ax2.xaxis.set_ticks(np.append(np.arange(0, time_max, time_interval), time_max))
         lns = lns + r_vs_t
         ax2.tick_params(labelsize=5)
         plt.subplots_adjust(top=0.835)
@@ -123,8 +123,8 @@ def create_graph(
         r_vs_t = ax.plot(time, ls_ohms, linewidth=0.5, label='Resistance vs. Time', color='orange')
         ax.set_xlabel('Time (sec)', fontsize=7)
         ax.set_ylabel(r'Resistance ($\Omega$)', fontsize=7)
-        ax.xaxis.set_ticks(np.arange(0, time_max, time_interval))
-        ax.yaxis.set_ticks(np.arange(0, resistance_max, resistance_interval))
+        ax.xaxis.set_ticks(np.append(np.arange(0, time_max, time_interval), time_max))
+        ax.yaxis.set_ticks(np.append(np.arange(0, resistance_max, resistance_interval), resistance_max))
         lns = r_vs_t
         fig.suptitle(title_1, fontsize=10, fontweight='bold')
         ax.set_title(title_2, fontsize=10, y=1.03)
@@ -170,7 +170,7 @@ def roundup(x):
 
 if __name__ == "__main__":
 
-    file_path = r'C:\Data\3164-1 (multiple cycles).csv'
+    file_path = r'C:\Data\sweep test data (single cycle).csv'
     data = np.genfromtxt(file_path, delimiter=',', dtype=str,)
     data = np_f.replace(data, '"', '')  # the csv files have double quotes for some reason - these need to be removed
     data = data.astype(np.float)  # convert remaining data to float
@@ -181,7 +181,7 @@ if __name__ == "__main__":
                  title_2='2921-1, Wet Test',
                  tol_path=r'C:\Users\gtetil\Documents\Projects\Reliability-Sweeper\Source\Files\Tolerances\MLS Tolerance (MS, dry).csv',
                  tol_band_color=0,
-                 graph_type=2,
+                 graph_type=1,
                  height_min=-15,
                  height_max=235,
                  height_interval=10,
