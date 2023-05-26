@@ -45,22 +45,8 @@
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
 		<Item Name="Reliability Project MAIN (PC).vi" Type="VI" URL="../Reliability Project MAIN (PC).vi"/>
-		<Item Name="Data (Global).vi" Type="VI" URL="../PC subVIs/Data (Global).vi"/>
-		<Item Name="Create Waveform.vi" Type="VI" URL="../PC subVIs/Create Waveform.vi"/>
-		<Item Name="Remove Invalid File Characters.vi" Type="VI" URL="../PC subVIs/Remove Invalid File Characters.vi"/>
-		<Item Name="Graphing Data (global).vi" Type="VI" URL="../PC subVIs/Graphing Data (global).vi"/>
-		<Item Name="Graphing Engine.vi" Type="VI" URL="../PC subVIs/Graphing Engine.vi"/>
-		<Item Name="Evaluate Data Errors.vi" Type="VI" URL="../PC subVIs/Evaluate Data Errors.vi"/>
 		<Item Name="Config.ini" Type="Document" URL="../Config.ini"/>
-		<Item Name="script debug.vi" Type="VI" URL="../PC subVIs/ls-tester-graph-script-master/script debug.vi"/>
-		<Item Name="Graph Type.ctl" Type="VI" URL="../TypeDef/Graph Type.ctl"/>
-		<Item Name="Graph Output File.ctl" Type="VI" URL="../TypeDef/Graph Output File.ctl"/>
-		<Item Name="Graph Parameters.ctl" Type="VI" URL="../TypeDef/Graph Parameters.ctl"/>
-		<Item Name="Test Header.ctl" Type="VI" URL="../TypeDef/Test Header.ctl"/>
-		<Item Name="Color.ctl" Type="VI" URL="../TypeDef/Color.ctl"/>
-		<Item Name="Test Parameters.ctl" Type="VI" URL="../TypeDef/Test Parameters.ctl"/>
-		<Item Name="Test Config.ctl" Type="VI" URL="../TypeDef/Test Config.ctl"/>
-		<Item Name="Test Style.ctl" Type="VI" URL="../TypeDef/Test Style.ctl"/>
+		<Item Name="Bias Resistors.ctl" Type="VI" URL="../TypeDef/Bias Resistors.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
@@ -85,7 +71,6 @@
 				<Item Name="Read File+ (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read File+ (string).vi"/>
 				<Item Name="Open File+.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Open File+.vi"/>
 				<Item Name="LVDateTimeRec.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVDateTimeRec.ctl"/>
-				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
 				<Item Name="Read Lines From File (with error IO).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Lines From File (with error IO).vi"/>
 				<Item Name="Read Delimited Spreadsheet (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet (string).vi"/>
 				<Item Name="Read Delimited Spreadsheet (I64).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet (I64).vi"/>
@@ -94,6 +79,12 @@
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
 				<Item Name="NI STM.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI/STM/NI STM.lvlib"/>
+				<Item Name="Write Spreadsheet String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Spreadsheet String.vi"/>
+				<Item Name="Write Delimited Spreadsheet (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet (string).vi"/>
+				<Item Name="Write Delimited Spreadsheet (I64).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet (I64).vi"/>
+				<Item Name="Write Delimited Spreadsheet (DBL).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet (DBL).vi"/>
+				<Item Name="Write Delimited Spreadsheet.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet.vi"/>
+				<Item Name="NI_PtbyPt.lvlib" Type="Library" URL="/&lt;vilib&gt;/ptbypt/NI_PtbyPt.lvlib"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Build Error Cluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Build Error Cluster__ogtk.vi"/>
@@ -150,12 +141,24 @@
 			</Item>
 			<Item Name="RTsend PCrecv Cluster.ctl" Type="VI" URL="../TCP/RT/RTsend PCrecv Cluster.ctl"/>
 			<Item Name="RTsend PCrecv CMD.ctl" Type="VI" URL="../TCP/RT/RTsend PCrecv CMD.ctl"/>
-			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="Config.ctl" Type="VI" URL="../TypeDef/Config.ctl"/>
 			<Item Name="Create Python Graph.vi" Type="VI" URL="../PC subVIs/ls-tester-graph-script-master/Create Python Graph.vi"/>
 			<Item Name="Open Config.vi" Type="VI" URL="../PC subVIs/Open Config.vi"/>
 			<Item Name="Test Config v1.ctl" Type="VI" URL="../TypeDef/Test Config v1.ctl"/>
 			<Item Name="Test Header v1.ctl" Type="VI" URL="../TypeDef/Test Header v1.ctl"/>
+			<Item Name="Test Header.ctl" Type="VI" URL="../TypeDef/Test Header.ctl"/>
+			<Item Name="Graph Parameters.ctl" Type="VI" URL="../TypeDef/Graph Parameters.ctl"/>
+			<Item Name="Color.ctl" Type="VI" URL="../TypeDef/Color.ctl"/>
+			<Item Name="Graph Type.ctl" Type="VI" URL="../TypeDef/Graph Type.ctl"/>
+			<Item Name="Graph Output File.ctl" Type="VI" URL="../TypeDef/Graph Output File.ctl"/>
+			<Item Name="Test Style.ctl" Type="VI" URL="../TypeDef/Test Style.ctl"/>
+			<Item Name="Test Config.ctl" Type="VI" URL="../TypeDef/Test Config.ctl"/>
+			<Item Name="Test Parameters.ctl" Type="VI" URL="../TypeDef/Test Parameters.ctl"/>
+			<Item Name="Data (Global).vi" Type="VI" URL="../PC subVIs/Data (Global).vi"/>
+			<Item Name="Graphing Engine.vi" Type="VI" URL="../PC subVIs/Graphing Engine.vi"/>
+			<Item Name="Graphing Data (global).vi" Type="VI" URL="../PC subVIs/Graphing Data (global).vi"/>
+			<Item Name="Remove Invalid File Characters.vi" Type="VI" URL="../PC subVIs/Remove Invalid File Characters.vi"/>
+			<Item Name="Evaluate Data Errors.vi" Type="VI" URL="../PC subVIs/Evaluate Data Errors.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Reliability Sweep Program" Type="EXE">
@@ -3453,7 +3456,6 @@ DirectoryIndex index.htm
 			</Item>
 		</Item>
 		<Item Name="Reliability System MAIN (RT).vi" Type="VI" URL="../Reliability System MAIN (RT).vi"/>
-		<Item Name="Connection (global).vi" Type="VI" URL="../RT subVIs/Connection (global).vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
@@ -3510,6 +3512,7 @@ DirectoryIndex index.htm
 			<Item Name="NiFpgaLv.dll" Type="Document" URL="NiFpgaLv.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="Connection (global).vi" Type="VI" URL="../RT subVIs/Connection (global).vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Sweeper" Type="{69A947D5-514E-4E75-818E-69657C0547D8}">
