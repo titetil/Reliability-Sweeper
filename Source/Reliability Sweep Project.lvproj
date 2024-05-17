@@ -47,8 +47,7 @@
 		<Item Name="Reliability Project MAIN (PC).vi" Type="VI" URL="../Reliability Project MAIN (PC).vi"/>
 		<Item Name="Config.ini" Type="Document" URL="../Config.ini"/>
 		<Item Name="Bias Resistors.ctl" Type="VI" URL="../TypeDef/Bias Resistors.ctl"/>
-		<Item Name="Untitled 2.vi" Type="VI" URL="../../../../../../Desktop/Untitled 2.vi"/>
-		<Item Name="Untitled 4.vi" Type="VI" URL="../../../../../../Desktop/Untitled 4.vi"/>
+		<Item Name="Tolerance Type.ctl" Type="VI" URL="../TypeDef/Tolerance Type.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
@@ -162,7 +161,8 @@
 			<Item Name="Graphing Data (global).vi" Type="VI" URL="../PC subVIs/Graphing Data (global).vi"/>
 			<Item Name="Remove Invalid File Characters.vi" Type="VI" URL="../PC subVIs/Remove Invalid File Characters.vi"/>
 			<Item Name="Evaluate Data Errors.vi" Type="VI" URL="../PC subVIs/Evaluate Data Errors.vi"/>
-			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
+			<Item Name="Test Config v2.ctl" Type="VI" URL="../TypeDef/Test Config v2.ctl"/>
+			<Item Name="Graph Parameters v1.ctl" Type="VI" URL="../TypeDef/Graph Parameters v1.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Reliability Sweep Program" Type="EXE">

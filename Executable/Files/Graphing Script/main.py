@@ -2,6 +2,7 @@ import os
 import subprocess
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 from matplotlib.backends.backend_pdf import PdfPages
 import numpy.core.defchararray as np_f
 import math
@@ -27,6 +28,10 @@ class Color(Enum):
     purple = 6
     grey = 7
 
+class Tol_Type(Enum):
+    Bands = 0
+    Boxes = 1
+
 def create_graph(
         data,
         data_path,
@@ -43,13 +48,15 @@ def create_graph(
         time_max,
         time_interval,
         graph_output_file,
-        auto_open):
+        auto_open,
+        tol_type):
 
     fig = plt.figure()
     ax = fig.add_subplot(111)
     graph_type = Graph_Type(graph_type)  # convert graph type to an enum
     graph_output_file = Graph_Output_File(graph_output_file)  # convert graph output file to an enum
     tol_band_color = Color(tol_band_color)  # convert tol band color to an enum
+    tol_type = Tol_Type(tol_type)  # convert tol type to an enum
 
     # LS data
     data = np.array(data)
@@ -134,9 +141,19 @@ def create_graph(
         tol_data = np.genfromtxt(tol_path, delimiter=',', dtype=str, skip_header=1)
         tol_data = np_f.replace(tol_data, '"', '')  # the csv files have double quotes for some reason - these need to be removed
         tol_data = tol_data.astype(np.float)  # convert remaining data to float
-        low_tol_plot = ax.plot(tol_data[:, 0], tol_data[:, 1], linewidth=0.5, color=tol_band_color.name, label='Tolerance', linestyle=':')
-        up_tol_plot = ax.plot(tol_data[:, 2], tol_data[:, 3], linewidth=0.5, color=tol_band_color.name, linestyle=':')
-        lns = lns + low_tol_plot
+        if tol_type == Tol_Type.Bands:
+            # bands
+            low_tol_plot = ax.plot(tol_data[:, 0], tol_data[:, 1], linewidth=0.5, color=tol_band_color.name, label='Tolerance', linestyle=':')
+            up_tol_plot = ax.plot(tol_data[:, 2], tol_data[:, 3], linewidth=0.5, color=tol_band_color.name, linestyle=':')
+            lns = lns + low_tol_plot
+        else:
+            # boxes
+            for row in tol_data:
+                # Parameters: (bottom-left-x, bottom-left-y), width, height
+                rect = patches.Rectangle((row[0], row[1]), (row[2]-row[0]), (row[3]-row[1]), linewidth=0.5, edgecolor=tol_band_color.name, facecolor='none')
+                ax.add_patch(rect)
+            tol_legend = ax.plot(0, 0, linewidth=0.5, color=tol_band_color.name, label='Tolerance')  # this is a blank plot just to get Tolerance into the legend
+            lns = lns + tol_legend
 
     # create legend
     labs = [l.get_label() for l in lns]
@@ -170,27 +187,28 @@ def roundup(x):
 
 if __name__ == "__main__":
 
-    file_path = r'C:\Data\sweep test data (single cycle).csv'
+    file_path = r'C:\Users\garre\Downloads\GQPS 66587 Dry (no header).csv'
     data = np.genfromtxt(file_path, delimiter=',', dtype=str,)
     data = np_f.replace(data, '"', '')  # the csv files have double quotes for some reason - these need to be removed
     data = data.astype(np.float)  # convert remaining data to float
 
     create_graph(data=data,
                  data_path=file_path,
-                 title_1='CA2020-3549, MAPPS, Post 6.8 Mechanical Strength of Electrical Connector',
-                 title_2='2921-1, Wet Test',
-                 tol_path=r'C:\Users\gtetil\Documents\Projects\Reliability-Sweeper\Source\Files\Tolerances\MLS Tolerance (MS, dry).csv',
+                 title_1='Title 1',
+                 title_2='Title 2',
+                 tol_path=r'C:\Users\garre\OneDrive - Tetil Engineering Inc\Documents\Projects\Reliability-Sweeper\Source\Files\Tolerances\Nissan P42QR Tolerance.csv',
                  tol_band_color=0,
-                 graph_type=1,
-                 height_min=-15,
-                 height_max=235,
+                 graph_type=2,
+                 height_min=-0,
+                 height_max=160,
                  height_interval=10,
-                 resistance_max=1250,
-                 resistance_interval=50,
-                 time_max=20,
+                 resistance_max=300,
+                 resistance_interval=20,
+                 time_max=5,
                  time_interval=1,
-                 graph_output_file=1,
-                 auto_open=1)
+                 graph_output_file=0,
+                 auto_open=1,
+                 tol_type=1)
 
 
 
